@@ -26,10 +26,10 @@ export const viewtask = (id) => {
     payload: id,
   };
 };
-export const filtertask = (id) => {
+export const filtertask = (filtre) => {
   return {
     type: FILTER_TASK,
-    payload: id,
+    payload: filtre,
   };
 };
 

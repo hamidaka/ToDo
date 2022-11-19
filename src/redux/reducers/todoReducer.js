@@ -1,6 +1,8 @@
 import { v4 as uuidv4 } from 'uuid';
-import { ADD_TASK,DELETE_TASK, EDIT_TASK, TOGGLE_VIEW } from '../action/type';
+import { ADD_TASK,DELETE_TASK, EDIT_TASK, TOGGLE_VIEW, FILTER_TASK } from '../action/type';
 const initState ={
+    
+    filtre:'ALL',
     taskes :
  [
     { id: 1, title: "go to school", isDone: false },
@@ -23,11 +25,17 @@ switch (type) {
             return {
                 ...state ,
                 taskes : state.taskes.map(el => el.id === payload.id ? payload : el)
-            }
-            case TOGGLE_VIEW :
+        }
+        case TOGGLE_VIEW :
             return {
                 ...state ,
                 taskes : state.taskes.map(el=> el.id === payload ? {...el , isDone : !el.isDone} : el)
+        }
+
+        case FILTER_TASK:
+            return {
+                ...state,
+                filtre:payload
             }
     
 
